@@ -1,0 +1,39 @@
+In JavaScript, an execution context is an abstract concept that holds all the necessary information for the execution of a specific piece of code. It includes variables, functions, the scope chain, and other relevant data required to execute the code. Understanding execution contexts is crucial for comprehending how JavaScript code is executed.
+
+There are three types of execution contexts in JavaScript:
+
+1. Global Execution Context:
+   - The global execution context is the default and outermost context that is created when the script starts running.
+   - It represents the global scope and is accessible throughout the entire script.
+   - The global execution context contains any variables or functions defined outside of any functions or blocks.
+   - There is only one global execution context in a JavaScript program.
+
+2. Function Execution Context:
+   - Whenever a function is invoked, a new function execution context is created.
+   - Each function has its own execution context, which includes its own set of variables and parameters.
+   - The function execution context is pushed onto the call stack, allowing the code inside the function to be executed.
+   - Once the function completes its execution, its execution context is popped off the call stack, and control returns to the previous context.
+
+3. Eval Execution Context:
+   - The eval() function in JavaScript creates a special execution context called the eval execution context.
+   - The eval execution context evaluates code dynamically within the current scope.
+   - Since the use of eval() is generally discouraged due to security concerns and performance implications, it's less commonly encountered.
+
+The following diagram illustrates the hierarchical relationship between execution contexts:
+
+```
+                      ┌─────────────────┐
+                      │ Global Context  │
+                      └─────────────────┘
+                      /       |         \
+                     /        |          \
+     ┌──────────────────┐ ┌──────────────────┐ ┌──────────────────┐
+     │ Function Context │ │ Function Context │ │ Function Context │
+     └──────────────────┘ └──────────────────┘ └──────────────────┘
+```
+
+In the diagram, the global execution context is at the top, representing the global scope. Below it, multiple function execution contexts are shown, each associated with a specific function invocation. The function contexts can be nested within one another if functions are called from other functions.
+
+Each execution context has its own scope chain, which determines the variables and functions accessible within that context. The scope chain is created based on the lexical structure of the code and the scope hierarchy.
+
+Understanding execution contexts helps in comprehending variable scoping, function invocation, and the overall flow of JavaScript code.
